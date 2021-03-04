@@ -1,6 +1,6 @@
-from RPA.Browser import Browser
+from RPA.Browser.Selenium import Selenium
 
-browser = Browser()
+browser = Selenium()
 url = "https://robocorp.com/docs/"
 term = "python"
 screenshot_filename = "output/screenshot.png"
