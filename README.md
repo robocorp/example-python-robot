@@ -1,7 +1,5 @@
 # Python robot
 
-A simple web scraper robot implemented as a Python script ([tasks.py](./tasks.py)) instead of a `.robot` file, using the `rpaframework` set of libraries.
-
-See the [robot.yaml](./robot.yaml) file for how to configure the `command` to run.
+A simple web scraper robot implemented in Python instead of Robot Framework syntax, using the `rpaframework` set of libraries.
 
 > You can find the full tutorial and instructions on [Robocorp's documentation site](https://robocorp.com/docs/development-guide/python/python-robot).
