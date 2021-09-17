@@ -1,33 +1,30 @@
 from RPA.Browser.Selenium import Selenium
 
-browser = Selenium()
-url = "https://robocorp.com/docs/"
-term = "python"
-screenshot_filename = "output/screenshot.png"
+browser_lib = Selenium()
 
 
-def open_the_website(url: str):
-    browser.open_available_browser(url)
+def open_the_website(url):
+    browser_lib.open_available_browser(url)
 
 
-def search_for(term: str):
+def search_for(term):
     input_field = "css:input"
-    browser.input_text(input_field, term)
-    browser.press_keys(input_field, "ENTER")
+    browser_lib.input_text(input_field, term)
+    browser_lib.press_keys(input_field, "ENTER")
 
 
-def store_screenshot(filename: str):
-    browser.screenshot(filename=filename)
+def store_screenshot(filename):
+    browser_lib.screenshot(filename=filename)
 
 
 # Define a main() function that calls the other functions in order:
 def main():
     try:
-        open_the_website(url)
-        search_for(term)
-        store_screenshot(screenshot_filename)
+        open_the_website("https://robocorp.com/docs/")
+        search_for("python")
+        store_screenshot("output/screenshot.png")
     finally:
-        browser.close_all_browsers()
+        browser_lib.close_all_browsers()
 
 
 # Call the main() function, checking that we are running as a stand-alone script:
