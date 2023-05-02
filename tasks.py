@@ -3,6 +3,7 @@ from RPA.Robocorp.WorkItems import WorkItems
 from RPA.Robocorp.Vault import Vault
 
 import default_variables
+from helpers import date_helper
 
 browser_lib = Selenium()
 
@@ -66,6 +67,12 @@ def access_search_page(query, website_query):
 
 
 def apply_filters(news_category, months):
+    # Applying months filter
+
+    # Fixing months if something happens
+    months = date_helper.fixing_months_variable(months)
+    start_date_string, end_date_string = date_helper.calculate_start_and_end_date(months)
+    
     pass
 
 
@@ -79,7 +86,7 @@ def main():
         variables = get_work_variables()
         open_the_website(variables["website"])
         access_search_page(variables["search_phrase"], variables["website_query"])
-        apply_filters()
+        apply_filters(variables["news_category_or_section"], variables["months"])
         store_screenshot("output/screenshot.png")
     except Exception as ex:
         print(ex)
