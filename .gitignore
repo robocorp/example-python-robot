@@ -15,3 +15,5 @@ temp/
 testrun/*
 .~lock*
 *.pkl
+vault.json
+devdata/env.json
