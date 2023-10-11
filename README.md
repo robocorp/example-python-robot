@@ -6,42 +6,7 @@ It is possible to implement robots using pure Python, without using Robot Framew
 
 This simple robot opens a web page, searches for a term, and takes a screenshot of the web page using the [`RPA.Browser.Selenium`](/libraries/rpa-framework/rpa-browser-selenium) library.
 
-## Robot script (Python)
-
-```python
-from RPA.Browser.Selenium import Selenium
-
-browser_lib = Selenium()
-
-
-def open_the_website(url):
-    browser_lib.open_available_browser(url)
-
-
-def search_for(term):
-    input_field = "css:input"
-    browser_lib.input_text(input_field, term)
-    browser_lib.press_keys(input_field, "ENTER")
-
-
-def store_screenshot(filename):
-    browser_lib.screenshot(filename=filename)
-
-
-# Define a main() function that calls the other functions in order:
-def main():
-    try:
-        open_the_website("https://robocorp.com/docs/")
-        search_for("python")
-        store_screenshot("output/screenshot.png")
-    finally:
-        browser_lib.close_all_browsers()
-
-
-# Call the main() function, checking that we are running as a stand-alone script:
-if __name__ == "__main__":
-    main()
-```
+## Python script notes
 
 - Import the `Selenium` library from the `RPA.Browser.Selenium` package.
 - Initialize the browser library.
@@ -51,7 +16,7 @@ if __name__ == "__main__":
 
 > **Important:** Always use `try` and `finally` to ensure that resources such as open browsers are closed even if some of the functions fail. This is similar to using `[Teardown]` in Robot Framework scripts. Read the [Errors and Exceptions](https://docs.python.org/3.7/tutorial/errors.html) document on python.org for more information.
 
-## `robot.yaml`
+## `robot.yaml` notes
 
 The `robot.yaml` file for the Python robot looks like this:
 
